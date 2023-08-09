@@ -33,3 +33,8 @@ __name__: "name" of the participant, in a series of letters and numbers. E.g., c
 __time__: the specific timestamp of when the signal is read. From 0 to 1s.  
 
 ## Data processing
+Here is a screenshot of a part of the dataset:  
+![data preview](preview.png)
+The major problem here is how do we convert the raw data into a proper training and testing sets for our models.  
+__Notice how each row is simply one signal data point in a trial for a participant.__  
+ Intuitively, it is extremely hard to classify if a person is alcoholic by looking at one single EEG signal data in 1/256 second. It means that training with this unprocessed data will lead to huge bias and low accuracy. Thus, we want each record to have a full set of signal data of the entire trial for each participant.
