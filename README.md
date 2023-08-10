@@ -38,3 +38,15 @@ Here is a screenshot of a part of the dataset:
 The major problem here is how do we convert the raw data into a proper training and testing sets for our models.  
 __Notice how each row is simply one signal data point in a trial for a participant.__  
  Intuitively, it is extremely hard to classify if a person is alcoholic by looking at one single EEG signal data in 1/256 second. It means that training with this unprocessed data will lead to huge bias and low accuracy. Thus, we want each record to have a full set of signal data of the entire trial for each participant.
+This is how I processed the data:  
+1. Read all csv files and append them to the dataframe.  
+2. Drop necessary columns, such as 'time', 'sensor position', and the automatically generated first id column. The reason we could drop these is that they essentially work the same as 'sample number' and 'channel' in sorting and grouping in later steps.  
+3. Convert 'subject identifier' and 'matching condition' to integer type.
+4. Sort the dataframe by 'subject identifier', 'trial number', 'sample number', and 'name'.
+5. Drop the 'sample number' column, because after sorting, all the rows are ordered by sample number already. We do not need it for the grouping later.
+6. Group all the signal data points by 'subject identifier', 'trial number', 'matching condition', and 'channel', append to the dataframe. Each cell should have a list with 256 elements in the new column.
+7. Split the data to X and y for model training.
+8. Convert each of the sensor value list to a new dataframe, and concat to the original one, and remove the original list column. The dataframe should have 258 columns(matching condition, channel, and 256 sensor values).
+9. Spilt X and y to training set and test set. Process X with standard scaler and PCA.
+10. The data pre-processing should be done.
+    
