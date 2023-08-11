@@ -49,4 +49,9 @@ This is how I processed the data:
 8. Convert each of the sensor value list to a new dataframe, and concat to the original one, and remove the original list column. The dataframe should have 258 columns(matching condition, channel, and 256 sensor values).
 9. Spilt X and y to training set and test set. Process X with standard scaler and PCA.
 10. The data pre-processing should be done.
-    
+
+    ## Models
+The machine learning models we use here are scikit-learn models. The models I imported and used are: Logistic Regression Classifier, K-Neighbors Classifier(KNN), Decision Tree Classifier(DTC), Stochastic Gradient Descent Classifier(SGD), Support Vector Machines Classifier(SVC), and Multiple-layer Perceptron Classifier(MLP). All the hyperparameters are set to default.
+
+##Result
+In terms of accuracy, MLP > KNN > SVC > DTC > Logistic Regression > SGD. MLP and KNN has outstanding accuracy with over 93% of the predictions being correct, while SGD has 59% accuracy that is slight higher than a random guess(50%).    
