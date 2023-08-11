@@ -61,7 +61,7 @@ The machine learning models we use here are scikit-learn models. The models I im
   
 All the hyperparameters are set to default.  
 
-Their documents and specs could be found [here](https://scikit-learn.org/stable/supervised_learning.html#supervised-learning).
+Their documents and specs could be found [here](https://scikit-learn.org/stable/supervised_learning.html#supervised-learning).  
 
 ## Result
 In terms of accuracy, MLP > KNN > SVC > DTC > Logistic Regression > SGD. MLP and KNN has outstanding accuracy with over 93% of the predictions being correct, while SGD has 59% accuracy that is slight higher than a random guess(50%).    
